@@ -1,0 +1,16 @@
+.card{
+    border: none;
+    border-radius: 10px;
+}
+
+.card-body{
+    text-align: center;
+}
+
+.card h2{
+    font-weight: bold;
+}
+
+.card-header{
+    font-weight: 600;
+}

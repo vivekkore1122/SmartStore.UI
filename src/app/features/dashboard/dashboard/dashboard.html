@@ -1,0 +1,81 @@
+<div class="container-fluid py-4">
+
+    <h2 class="fw-bold">Dashboard</h2>
+
+    <h5 *ngIf="isLoggedIn">
+    Welcome {{ userName }} 👋
+    </h5>
+
+    <h5 *ngIf="!isLoggedIn" class="text-danger">
+        Please Login
+    </h5>
+
+    <p>Good Morning, Welcome to {{ applicationName }}</p>
+
+    <div class="row mt-4">
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h6>Total Products</h6>
+                    <h2>{{ totalProducts }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h6>Total Customers</h6>
+                    <h2>{{ totalCustomers }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h6>Today's Sales</h6>
+                    <h2>₹{{ todaySales }}</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h6>Total Revenue</h6>
+                    <h2>₹{{ totalRevenue }}</h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card shadow-sm mt-4">
+
+        <div class="card-header">
+
+            Recent Activities
+
+        </div>
+
+        <div class="card-body">
+
+            <ul class="list-group list-group-flush">
+
+                <li
+                    class="list-group-item"
+                    *ngFor="let activity of activities">
+
+                    {{ activity }}
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
