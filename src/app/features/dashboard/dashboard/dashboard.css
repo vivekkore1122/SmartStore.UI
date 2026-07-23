@@ -1,16 +1,12 @@
-.card{
+.card {
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
-.card-body{
-    text-align: center;
-}
-
-.card h2{
+.card-body h2 {
     font-weight: bold;
 }
 
-.card-header{
-    font-weight: 600;
+.list-group-item {
+    border: none;
 }

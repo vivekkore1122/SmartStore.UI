@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DashboardService } from '../../../core/services/dashboard.service';
+import { DashboardResponse } from '../../../core/models/dashboard.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,19 +8,48 @@ import { Component } from '@angular/core';
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css']
 })
-export class Dashboard {
+export class Dashboard implements OnInit {
+
+  constructor(
+    private dashboardService: DashboardService
+  ) { }
 
   applicationName = 'InventoryPro';
   userName = 'Admin';
-  totalProducts = 150;
-  totalCustomers = 45;
-  todaySales = 25000;
-  totalRevenue = 125000;
   isLoggedIn = true;
 
-  activities = [
-    'Product Added',
-    'Customer Registered',
-    'Sale Completed'
-  ];
+  dashboard: DashboardResponse = {
+    totalProducts: 0,
+    totalCustomers: 0,
+    totalCategories: 0,
+    totalOrders: 0,
+    recentOrders: []
+  };
+
+  ngOnInit(): void {
+    this.loadDashboard();
+  }
+
+  private loadDashboard(): void {
+
+    this.dashboardService.getDashboard().subscribe({
+
+      next: (response) => {
+
+        console.log('Dashboard Response:', response);
+
+        this.dashboard = response;
+
+      },
+
+      error: (error) => {
+
+        console.error('Error loading dashboard:', error);
+
+      }
+
+    });
+
+  }
+
 }

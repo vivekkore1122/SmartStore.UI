@@ -3,14 +3,16 @@
     <h2 class="fw-bold">Dashboard</h2>
 
     <h5 *ngIf="isLoggedIn">
-    Welcome {{ userName }} 👋
+        Welcome {{ userName }} 👋
     </h5>
 
     <h5 *ngIf="!isLoggedIn" class="text-danger">
         Please Login
     </h5>
 
-    <p>Good Morning, Welcome to {{ applicationName }}</p>
+    <p>
+        Good Morning, Welcome to {{ applicationName }}
+    </p>
 
     <div class="row mt-4">
 
@@ -18,7 +20,7 @@
             <div class="card shadow-sm">
                 <div class="card-body text-center">
                     <h6>Total Products</h6>
-                    <h2>{{ totalProducts }}</h2>
+                    <h2>{{ dashboard.totalProducts }}</h2>
                 </div>
             </div>
         </div>
@@ -27,7 +29,7 @@
             <div class="card shadow-sm">
                 <div class="card-body text-center">
                     <h6>Total Customers</h6>
-                    <h2>{{ totalCustomers }}</h2>
+                    <h2>{{ dashboard.totalCustomers }}</h2>
                 </div>
             </div>
         </div>
@@ -35,8 +37,8 @@
         <div class="col-md-3 mb-3">
             <div class="card shadow-sm">
                 <div class="card-body text-center">
-                    <h6>Today's Sales</h6>
-                    <h2>₹{{ todaySales }}</h2>
+                    <h6>Total Categories</h6>
+                    <h2>{{ dashboard.totalCategories }}</h2>
                 </div>
             </div>
         </div>
@@ -44,8 +46,8 @@
         <div class="col-md-3 mb-3">
             <div class="card shadow-sm">
                 <div class="card-body text-center">
-                    <h6>Total Revenue</h6>
-                    <h2>₹{{ totalRevenue }}</h2>
+                    <h6>Total Orders</h6>
+                    <h2>{{ dashboard.totalOrders }}</h2>
                 </div>
             </div>
         </div>
@@ -55,9 +57,7 @@
     <div class="card shadow-sm mt-4">
 
         <div class="card-header">
-
-            Recent Activities
-
+            Recent Orders
         </div>
 
         <div class="card-body">
@@ -65,10 +65,12 @@
             <ul class="list-group list-group-flush">
 
                 <li
-                    class="list-group-item"
-                    *ngFor="let activity of activities">
+                    class="list-group-item d-flex justify-content-between"
+                    *ngFor="let order of dashboard.recentOrders">
 
-                    {{ activity }}
+                    <span>{{ order.customer }}</span>
+
+                    <strong>₹{{ order.amount }}</strong>
 
                 </li>
 
