@@ -1,0 +1,23 @@
+{
+  "totalProducts": 250,
+  "totalCategories": 12,
+  "totalOrders": 48,
+  "totalCustomers": 75,
+  "recentOrders": [
+    {
+      "id": 1,
+      "customer": "John",
+      "amount": 1200
+    },
+    {
+      "id": 2,
+      "customer": "David",
+      "amount": 850
+    },
+    {
+      "id": 3,
+      "customer": "Sarah",
+      "amount": 550
+    }
+  ]
+}
