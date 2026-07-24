@@ -14,6 +14,9 @@ import { Layout } from './layout/layout/layout';
 import { Sidebar } from './layout/sidebar/sidebar';
 import { Footer } from './layout/footer/footer';
 import { Capitalize } from './shared/pipes/capitalize-pipe';
+import { Products } from './features/products/products/products';
+import { Categories } from './features/categories/categories/categories';
+import { ProductDetails } from './features/products/product-details/product-details';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { Capitalize } from './shared/pipes/capitalize-pipe';
     Layout,
     Sidebar,
     Footer,
-    Capitalize
+    Capitalize,
+    Products,
+    Categories,
+    ProductDetails
   ],
   imports: [
   BrowserModule,
