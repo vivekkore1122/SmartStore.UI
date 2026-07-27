@@ -8,6 +8,8 @@ import { Dashboard } from './features/dashboard/dashboard/dashboard';
 import { Products } from './features/products/products/products';
 import { Categories } from './features/categories/categories/categories';
 import { ProductDetails } from './features/products/product-details/product-details';
+import { AddProduct } from './features/products/add-product/add-product';
+import {AddCategory} from './features/categories/add-category/add-category';
 
 const routes: Routes = [
   {
@@ -28,6 +30,10 @@ const routes: Routes = [
         canActivate: [authGuard]
       },
       {
+        path: 'products/add',
+        component: AddProduct
+      },
+      {
         path: 'products/:id',
         component: ProductDetails,
         canActivate: [authGuard]
@@ -35,6 +41,10 @@ const routes: Routes = [
       {
         path: 'categories',
         component: Categories
+      },
+      {
+        path: 'categories/add',
+        component:AddCategory
       }
     ]
   },
