@@ -1,0 +1,90 @@
+<div class="container mt-4">
+
+    <div class="card shadow-sm">
+
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Add Category</h3>
+        </div>
+
+        <div class="card-body">
+
+            <form
+                [formGroup]="categoryForm"
+                (ngSubmit)="onSubmit()">
+
+                <!-- Category Name -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Category Name
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        formControlName="categoryName">
+
+                    <div
+                        class="text-danger mt-1"
+                        *ngIf="categoryForm.get('categoryName')?.touched &&
+                               categoryForm.get('categoryName')?.invalid">
+
+                        Category Name is required.
+
+                    </div>
+
+                </div>
+
+                <!-- Description -->
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Description
+                    </label>
+
+                    <textarea
+                        rows="4"
+                        class="form-control"
+                        formControlName="description">
+                    </textarea>
+
+                    <div
+                        class="text-danger mt-1"
+                        *ngIf="categoryForm.get('description')?.touched &&
+                               categoryForm.get('description')?.hasError('required')">
+
+                        Description is required.
+
+                    </div>
+
+                    <div
+                        class="text-danger"
+                        *ngIf="categoryForm.get('description')?.touched &&
+                               categoryForm.get('description')?.hasError('minlength')">
+
+                        Description must be at least 10 characters.
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex justify-content-end">
+
+                    <button
+                        class="btn btn-success"
+                        type="submit"
+                        [disabled]="categoryForm.invalid">
+
+                        Save Category
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

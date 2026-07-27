@@ -1,0 +1,193 @@
+<div class="container mt-4">
+
+    <div class="card shadow-sm">
+
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">Add New Product</h3>
+        </div>
+
+        <div class="card-body">
+
+            <form
+                [formGroup]="productForm"
+                (ngSubmit)="onSubmit()">
+
+                <!-- Product Name -->
+                <div class="mb-3">
+                    <label class="form-label">Product Name</label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        formControlName="productName">
+
+                    <div class="text-danger mt-1"
+                        *ngIf="productForm.get('productName')?.touched &&
+                               productForm.get('productName')?.invalid">
+
+                        Product Name is required.
+
+                    </div>
+                </div>
+
+                <!-- Product Code -->
+                <div class="mb-3">
+                    <label class="form-label">Product Code</label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        formControlName="productCode">
+
+                    <div class="text-danger mt-1"
+                        *ngIf="productForm.get('productCode')?.touched &&
+                               productForm.get('productCode')?.invalid">
+
+                        Product Code is required.
+
+                    </div>
+                </div>
+
+                <!-- Category -->
+                <div class="mb-3">
+                    <label class="form-label">Category</label>
+
+                    <select
+                        class="form-select"
+                        formControlName="category">
+
+                        <option value="">Select Category</option>
+                        <option>Electronics</option>
+                        <option>Furniture</option>
+                        <option>Accessories</option>
+
+                    </select>
+
+                    <div class="text-danger mt-1"
+                        *ngIf="productForm.get('category')?.touched &&
+                               productForm.get('category')?.invalid">
+
+                        Please select a category.
+
+                    </div>
+                </div>
+
+                <!-- Supplier -->
+                <div class="mb-3">
+                    <label class="form-label">Supplier</label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        formControlName="supplier">
+
+                    <div class="text-danger mt-1"
+                        *ngIf="productForm.get('supplier')?.touched &&
+                               productForm.get('supplier')?.invalid">
+
+                        Supplier is required.
+
+                    </div>
+                </div>
+
+                <!-- Price -->
+                <div class="mb-3">
+                    <label class="form-label">Price</label>
+
+                    <input
+                        type="number"
+                        class="form-control"
+                        formControlName="price">
+
+                    <div class="text-danger mt-1"
+                        *ngIf="productForm.get('price')?.touched &&
+                               productForm.get('price')?.invalid">
+
+                        Price is required.
+
+                    </div>
+                </div>
+
+                <!-- Quantity -->
+                <div class="mb-3">
+                    <label class="form-label">Quantity</label>
+
+                    <input
+                        type="number"
+                        class="form-control"
+                        formControlName="quantity">
+
+                    <div class="text-danger mt-1"
+                        *ngIf="productForm.get('quantity')?.touched &&
+                               productForm.get('quantity')?.invalid">
+
+                        Quantity is required.
+
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label class="form-label">Supplier Email</label>
+
+                    <input
+                        type="email"
+                        class="form-control"
+                        formControlName="email">
+
+                    <div class="text-danger mt-1"
+                        *ngIf="productForm.get('email')?.touched &&
+                               productForm.get('email')?.hasError('required')">
+
+                        Email is required.
+
+                    </div>
+
+                    <div class="text-danger"
+                        *ngIf="productForm.get('email')?.touched &&
+                               productForm.get('email')?.hasError('email')">
+
+                        Enter a valid email address.
+
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+
+                    <input
+                        type="password"
+                        class="form-control"
+                        formControlName="password">
+
+                    <div class="text-danger mt-1"
+                        *ngIf="productForm.get('password')?.touched &&
+                               productForm.get('password')?.invalid">
+
+                        Password is required.
+
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="d-flex justify-content-end">
+
+                    <button
+                        type="submit"
+                        class="btn btn-success"
+                        [disabled]="productForm.invalid">
+
+                        Save Product
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
