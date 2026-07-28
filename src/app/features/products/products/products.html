@@ -12,7 +12,7 @@
 
 <hr>
 
-<div class="product-card" *ngFor="let product of products">
+<div *ngFor="let product of (products$ | async)">
 
     <h3>{{ product.name }}</h3>
 

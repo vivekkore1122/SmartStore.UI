@@ -1,18 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+import { Product } from '../../../core/models/product.model';
+import { AppState } from '../../../store/app.state';
+
+import * as ProductActions from '../../../store/actions/product.actions';
+
+import {
+  selectProducts,
+  selectLoading
+} from '../../../store/selectors/product.selectors';
 
 @Component({
   selector: 'app-products',
   standalone: false,
   templateUrl: './products.html',
-  styleUrl: './products.css'
+  styleUrls: ['./products.css']
 })
-export class Products {
+export class Products implements OnInit {
 
-  products = [
-    { id: 1, name: 'Laptop', price: 55000 },
-    { id: 2, name: 'Mouse', price: 500 },
-    { id: 3, name: 'Keyboard', price: 1200 },
-    { id: 4, name: 'Monitor', price: 18000 }
-  ];
+  products$: Observable<Product[]>;
+  loading$: Observable<boolean>;
 
+  constructor(private store: Store<AppState>) {
+    this.products$ = this.store.select(selectProducts);
+    this.loading$ = this.store.select(selectLoading);
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(ProductActions.loadProducts());
+  }
 }

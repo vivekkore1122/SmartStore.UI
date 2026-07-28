@@ -17,6 +17,14 @@ import { AddProduct } from './features/products/add-product/add-product';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddCategory } from './features/categories/add-category/add-category';
 
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducers } from './store/reducers';
+import { ProductEffects } from './store/effects/product.effects';
+
+
+
 @NgModule({
   declarations: [
     App,
@@ -36,7 +44,16 @@ import { AddCategory } from './features/categories/add-category/add-category';
   imports: [
   BrowserModule,
   AppRoutingModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  StoreModule.forRoot(reducers),
+
+  EffectsModule.forRoot([
+    ProductEffects
+  ]),
+
+  StoreDevtoolsModule.instrument({
+    maxAge: 25
+  }),
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),

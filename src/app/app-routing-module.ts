@@ -40,7 +40,8 @@ const routes: Routes = [
       },
       {
         path: 'categories',
-        component: Categories
+        component: Categories,
+        canActivate: [authGuard]
       },
       {
         path: 'categories/add',
