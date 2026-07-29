@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,DoCheck,ChangeDetectionStrategy} from '@angular/core';
 import { DashboardService } from '../../../core/services/dashboard.service';
 import { DashboardResponse } from '../../../core/models/dashboard.model';
 
@@ -6,7 +6,8 @@ import { DashboardResponse } from '../../../core/models/dashboard.model';
   selector: 'app-dashboard',
   standalone: false,
   templateUrl: './dashboard.html',
-  styleUrls: ['./dashboard.css']
+  styleUrls: ['./dashboard.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Dashboard implements OnInit {
 
@@ -29,6 +30,10 @@ export class Dashboard implements OnInit {
   ngOnInit(): void {
     this.loadDashboard();
   }
+
+//   ngDoCheck(): void {
+//   console.log('Dashboard Change Detection');
+//  }
 
   private loadDashboard(): void {
 
