@@ -1,23 +1,27 @@
-<div class="layout">
+<mat-sidenav-container class="layout-container">
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
+    <mat-sidenav
+        #drawer
+        [mode]="isMobile ? 'over' : 'side'"
+        [opened]="!isMobile"
+        class="sidebar">
+
         <app-sidebar></app-sidebar>
-    </aside>
 
-    <!-- Main Content -->
-    <div class="main-content">
+    </mat-sidenav>
 
-        <!-- Navbar -->
-        <header class="navbar-container">
-            <app-navbar></app-navbar>
-        </header>
+    <mat-sidenav-content>
 
-        <!-- Routed Pages -->
-        <main class="page-content">
+        <app-navbar></app-navbar>
+
+        <main class="content">
+
             <router-outlet></router-outlet>
+
         </main>
 
-    </div>
+        <app-footer></app-footer>
 
-</div>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

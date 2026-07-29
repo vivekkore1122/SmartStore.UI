@@ -1,1 +1,100 @@
-<p>product-details works!</p>
+<div class="details-container">
+
+    <mat-card class="details-card"*ngIf="product">
+
+        <mat-card-header>
+
+            <mat-icon class="header-icon">
+                inventory_2
+            </mat-icon>
+
+            <mat-card-title>
+                Product Details
+            </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-divider></mat-divider>
+
+        <mat-card-content>
+
+            <div class="detail-row">
+
+                <span class="label">Product Name</span>
+
+                <span class="value">{{ product.name }}</span>
+
+            </div>
+
+            <div class="detail-row">
+
+                <span class="label">Product Code</span>
+
+                <span class="value">{{ product.productCode }}</span>
+
+            </div>
+
+            <div class="detail-row">
+
+                <span class="label">Category</span>
+
+                <span class="value">{{ product.category }}</span>
+
+            </div>
+
+            <div class="detail-row">
+
+                <span class="label">Supplier</span>
+
+                <span class="value">{{ product.supplier }}</span>
+
+            </div>
+
+            <div class="detail-row">
+
+                <span class="label">Price</span>
+
+                <span class="value">₹ {{ product.price }}</span>
+
+            </div>
+
+            <div class="detail-row">
+
+                <span class="label">Quantity</span>
+
+                <span class="value">{{ product.quantity }}</span>
+
+            </div>
+
+        </mat-card-content>
+
+        <mat-divider></mat-divider>
+
+        <mat-card-actions align="end">
+
+            <button
+                mat-stroked-button
+                color="primary"
+                routerLink="/products">
+
+                <mat-icon>arrow_back</mat-icon>
+
+                Back
+
+            </button>
+
+            <button
+                mat-raised-button
+                color="accent">
+
+                <mat-icon>edit</mat-icon>
+
+                Edit
+
+            </button>
+
+        </mat-card-actions>
+
+    </mat-card>
+
+</div>

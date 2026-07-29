@@ -22,6 +22,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers } from './store/reducers';
 import { ProductEffects } from './store/effects/product.effects';
+import { MaterialModule } from './shared/material/material.module';
 
 
 
@@ -45,6 +46,7 @@ import { ProductEffects } from './store/effects/product.effects';
   BrowserModule,
   AppRoutingModule,
   ReactiveFormsModule,
+  MaterialModule,
   StoreModule.forRoot(reducers),
 
   EffectsModule.forRoot([

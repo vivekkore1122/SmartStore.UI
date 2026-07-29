@@ -1,0 +1,45 @@
+.footer {
+    height: 60px;
+    background: #ffffff;
+    border-top: 1px solid #e0e0e0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 24px;
+
+    font-size: 14px;
+    color: #616161;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.footer-center {
+    font-weight: 500;
+}
+
+.footer-right {
+    font-weight: 500;
+}
+
+@media (max-width:768px) {
+
+    .footer {
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        gap: 6px;
+
+        height: auto;
+
+        padding: 12px;
+    }
+
+}

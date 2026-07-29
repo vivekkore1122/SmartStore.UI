@@ -1,17 +1,65 @@
-<nav class="navbar">
+<mat-toolbar color="primary" class="navbar">
 
     <div class="logo">
-        🛒 InventoryPro
-    </div>
 
-    <div class="nav-right">
+        <mat-icon>store</mat-icon>
 
-        <span class="icon">🔔</span>
-
-        <span class="user">
-            👤 Welcome Admin
-        </span>
+        <span>SmartStore</span>
 
     </div>
 
-</nav>
+    <span class="spacer"></span>
+
+    <mat-form-field
+        appearance="outline"
+        class="search-box">
+
+        <mat-icon matPrefix>search</mat-icon>
+
+        <input
+            matInput
+            placeholder="Search products...">
+
+    </mat-form-field>
+
+    <button
+        mat-icon-button
+        aria-label="Notifications">
+
+        <mat-icon>notifications</mat-icon>
+
+    </button>
+
+    <button
+        mat-button
+        [matMenuTriggerFor]="profileMenu">
+
+        <mat-icon>account_circle</mat-icon>
+
+        Admin
+
+        <mat-icon>arrow_drop_down</mat-icon>
+
+    </button>
+
+    <mat-menu #profileMenu="matMenu">
+
+        <button mat-menu-item>
+
+            <mat-icon>person</mat-icon>
+
+            Profile
+
+        </button>
+
+        <button mat-menu-item>
+
+            <mat-icon>logout</mat-icon>
+
+            Logout
+
+        </button>
+
+    </mat-menu>
+
+</mat-toolbar>

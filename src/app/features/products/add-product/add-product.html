@@ -1,12 +1,18 @@
 <div class="container mt-4">
 
-    <div class="card shadow-sm">
+    <mat-card class="product-card">
 
-        <div class="card-header bg-primary text-white">
-            <h3 class="mb-0">Add New Product</h3>
-        </div>
+        <mat-card-header>
 
-        <div class="card-body">
+            <mat-card-title>
+                Add New Product
+            </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
+
+            <div class="form-grid">
 
             <form
                 [formGroup]="productForm"
@@ -14,169 +20,294 @@
 
                 <!-- Product Name -->
                 <div class="mb-3">
-                    <label class="form-label">Product Name</label>
+                    <mat-form-field
+                        appearance="outline"
+                        class="full-width">
 
-                    <input
-                        type="text"
-                        class="form-control"
-                        formControlName="productName">
+                        <mat-label>
 
-                    <div class="text-danger mt-1"
-                        *ngIf="productForm.get('productName')?.touched &&
-                               productForm.get('productName')?.invalid">
+                            Product Name
 
-                        Product Name is required.
+                        </mat-label>
 
-                    </div>
+                        
+
+                            <!-- <mat-label>Product Name</mat-label> -->
+
+                        <input
+                            matInput
+                            formControlName="productName"
+                            placeholder="Enter Product Name">
+
+                        
+
+                        <mat-error *ngIf="f['price'].hasError('required')">
+
+                            Price is required.
+
+                        </mat-error>
+
+                        <mat-error *ngIf="f['price'].hasError('min')">
+
+                            Price must be greater than or equal to 0.
+
+                        </mat-error>
+
+                    </mat-form-field>
+
                 </div>
 
                 <!-- Product Code -->
                 <div class="mb-3">
                     <label class="form-label">Product Code</label>
 
-                    <input
-                        type="text"
-                        class="form-control"
-                        formControlName="productCode">
+                    <mat-form-field
+                    appearance="outline"
+                    class="full-width">
 
-                    <div class="text-danger mt-1"
-                        *ngIf="productForm.get('productCode')?.touched &&
-                               productForm.get('productCode')?.invalid">
+                        <mat-label>
 
-                        Product Code is required.
+                            Product Code
 
-                    </div>
+                        </mat-label>
+
+                        <input
+                            matInput
+                            formControlName="productCode">
+                        <mat-hint>
+                            Example: PRD-1001
+                        </mat-hint>                      
+
+                        <mat-error
+                            *ngIf="f['productCode'].touched &&
+                                f['productCode'].invalid">
+
+                            Product Code is required
+
+                        </mat-error>
+
+                    </mat-form-field>
                 </div>
 
                 <!-- Category -->
                 <div class="mb-3">
                     <label class="form-label">Category</label>
 
-                    <select
-                        class="form-select"
-                        formControlName="category">
+                    <mat-form-field
+                    appearance="outline"
+                    class="full-width">
 
-                        <option value="">Select Category</option>
-                        <option>Electronics</option>
-                        <option>Furniture</option>
-                        <option>Accessories</option>
+                        <mat-label>
 
-                    </select>
+                            Category
 
-                    <div class="text-danger mt-1"
-                        *ngIf="productForm.get('category')?.touched &&
-                               productForm.get('category')?.invalid">
+                        </mat-label>
 
-                        Please select a category.
+                        <mat-select
+                            formControlName="category">
 
-                    </div>
+                            <mat-option value="">
+
+                                Select Category
+
+                            </mat-option>
+
+                            <mat-option value="Electronics">
+
+                                Electronics
+
+                            </mat-option>
+
+                            <mat-option value="Furniture">
+
+                                Furniture
+
+                            </mat-option>
+
+                            <mat-option value="Accessories">
+
+                                Accessories
+
+                            </mat-option>
+
+                        </mat-select>
+
+                        <mat-error
+                            *ngIf="f['category'].touched &&
+                                f['category'].invalid">
+
+                            Please select a category
+
+                        </mat-error>
+
+                    </mat-form-field>
                 </div>
 
                 <!-- Supplier -->
                 <div class="mb-3">
                     <label class="form-label">Supplier</label>
 
-                    <input
-                        type="text"
-                        class="form-control"
-                        formControlName="supplier">
+                    <mat-form-field
+                    appearance="outline"
+                    class="full-width">
 
-                    <div class="text-danger mt-1"
-                        *ngIf="productForm.get('supplier')?.touched &&
-                               productForm.get('supplier')?.invalid">
+                        <mat-label>
 
-                        Supplier is required.
+                            Supplier
 
-                    </div>
+                        </mat-label>
+
+                        <input
+                            matInput
+                            formControlName="supplier">
+
+                        <mat-error
+                            *ngIf="f['supplier'].touched &&
+                                f['supplier'].invalid">
+
+                            Supplier is required
+
+                        </mat-error>
+
+                    </mat-form-field>
                 </div>
 
                 <!-- Price -->
                 <div class="mb-3">
                     <label class="form-label">Price</label>
 
-                    <input
-                        type="number"
-                        class="form-control"
-                        formControlName="price">
+                    <mat-form-field
+                    appearance="outline"
+                    class="full-width">
 
-                    <div class="text-danger mt-1"
-                        *ngIf="productForm.get('price')?.touched &&
-                               productForm.get('price')?.invalid">
+                        <mat-label>
 
-                        Price is required.
+                            Price
 
-                    </div>
+                        </mat-label>
+
+                        <input
+                            matInput
+                            type="number"
+                            formControlName="price">
+
+                        <mat-error
+                            *ngIf="f['price'].touched &&
+                                f['price'].invalid">
+
+                            Enter a valid price
+
+                        </mat-error>
+
+                    </mat-form-field>
                 </div>
 
                 <!-- Quantity -->
                 <div class="mb-3">
                     <label class="form-label">Quantity</label>
 
-                    <input
-                        type="number"
-                        class="form-control"
-                        formControlName="quantity">
+                    <mat-form-field
+                    appearance="outline"
+                    class="full-width">
 
-                    <div class="text-danger mt-1"
-                        *ngIf="productForm.get('quantity')?.touched &&
-                               productForm.get('quantity')?.invalid">
+                        <mat-label>
 
-                        Quantity is required.
+                            Quantity
 
-                    </div>
+                        </mat-label>
+
+                        <input
+                            matInput
+                            type="number"
+                            formControlName="quantity">
+
+                        <mat-error
+                            *ngIf="f['quantity'].touched &&
+                                f['quantity'].invalid">
+
+                            Quantity is required
+
+                        </mat-error>
+
+                    </mat-form-field>
                 </div>
 
                 <!-- Email -->
                 <div class="mb-3">
                     <label class="form-label">Supplier Email</label>
 
-                    <input
-                        type="email"
-                        class="form-control"
-                        formControlName="email">
+                    <mat-form-field
+                    appearance="outline"
+                    class="full-width">
 
-                    <div class="text-danger mt-1"
-                        *ngIf="productForm.get('email')?.touched &&
-                               productForm.get('email')?.hasError('required')">
+                        <mat-label>
 
-                        Email is required.
+                            Supplier Email
 
-                    </div>
+                        </mat-label>
 
-                    <div class="text-danger"
-                        *ngIf="productForm.get('email')?.touched &&
-                               productForm.get('email')?.hasError('email')">
+                        <input
+                            matInput
+                            type="email"
+                            formControlName="email">
 
-                        Enter a valid email address.
+                        <mat-error
+                            *ngIf="f['email'].hasError('required')">
 
-                    </div>
+                            Email is required
+
+                        </mat-error>
+
+                        <mat-error
+                            *ngIf="f['email'].hasError('email')">
+
+                            Invalid Email
+
+                        </mat-error>
+
+                    </mat-form-field>
                 </div>
 
                 <!-- Password -->
                 <div class="mb-3">
                     <label class="form-label">Password</label>
 
-                    <input
-                        type="password"
-                        class="form-control"
-                        formControlName="password">
+                    <mat-form-field
+                    appearance="outline"
+                    class="full-width">
 
-                    <div class="text-danger mt-1"
-                        *ngIf="productForm.get('password')?.touched &&
-                               productForm.get('password')?.invalid">
+                        <mat-label>
 
-                        Password is required.
+                            Password
 
-                    </div>
+                        </mat-label>
+
+                        <input
+                            matInput
+                            type="password"
+                            formControlName="password">
+
+                        <mat-error
+                            *ngIf="f['password'].touched &&
+                                f['password'].invalid">
+
+                            Minimum 6 characters
+
+                        </mat-error>
+
+                    </mat-form-field>
                 </div>
 
                 <!-- Buttons -->
                 <div class="d-flex justify-content-end">
 
                     <button
+                        mat-raised-button
+                        color="primary"
                         type="submit"
-                        class="btn btn-success"
                         [disabled]="productForm.invalid">
+
+                        <mat-icon>save</mat-icon>
 
                         Save Product
 
@@ -186,8 +317,10 @@
 
             </form>
 
-        </div>
+            </div>
 
-    </div>
+        </mat-card-content>
+
+    </mat-card>
 
 </div>
