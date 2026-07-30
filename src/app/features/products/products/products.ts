@@ -28,6 +28,14 @@ export class Products implements OnInit {
     this.loading$ = this.store.select(selectLoading);
   }
 
+  deleteProduct(id: number): void {
+
+    console.log('Delete Product Id :', id);
+
+    // Later:
+    // this.productService.deleteProduct(id).subscribe(...)
+  }
+
   ngOnInit(): void {
     this.store.dispatch(ProductActions.loadProducts());
   }

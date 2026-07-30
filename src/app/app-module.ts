@@ -23,6 +23,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers } from './store/reducers';
 import { ProductEffects } from './store/effects/product.effects';
 import { MaterialModule } from './shared/material/material.module';
+import { AppCardComponent  } from './shared/components/app-card/app-card';
+import { ProductCardComponent } from './shared/components/product-card/product-card';
 
 
 
@@ -40,7 +42,9 @@ import { MaterialModule } from './shared/material/material.module';
     Categories,
     ProductDetails,
     AddProduct,
-    AddCategory
+    AddCategory,
+    AppCardComponent,
+    ProductCardComponent
   ],
   imports: [
   BrowserModule,

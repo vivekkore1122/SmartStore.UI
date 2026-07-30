@@ -17,39 +17,50 @@
     <div class="row mt-4">
 
         <div class="col-md-3 mb-3">
-            <div class="card shadow-sm">
-                <div class="card-body text-center">
-                    <h6>Total Products</h6>
+
+            <app-card>
+
+                <h6 card-title>Total Products</h6>
+
+                <div class="text-center">
                     <h2>{{ dashboard.totalProducts }}</h2>
                 </div>
-            </div>
+
+            </app-card>
+
         </div>
 
         <div class="col-md-3 mb-3">
-            <div class="card shadow-sm">
-                <div class="card-body text-center">
-                    <h6>Total Customers</h6>
+            <app-card>
+
+                <h6 card-title>Total Customers</h6>
+                <div class="text-center">
                     <h2>{{ dashboard.totalCustomers }}</h2>
                 </div>
-            </div>
+
+            </app-card>
         </div>
 
         <div class="col-md-3 mb-3">
-            <div class="card shadow-sm">
-                <div class="card-body text-center">
-                    <h6>Total Categories</h6>
-                    <h2>{{ dashboard.totalCategories }}</h2>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 mb-3">
-            <div class="card shadow-sm">
-                <div class="card-body text-center">
-                    <h6>Total Orders</h6>
+            <app-card>
+                <h6 card-title>Total Orders</h6>
+                <div class="text-center">
                     <h2>{{ dashboard.totalOrders }}</h2>
                 </div>
-            </div>
+
+            </app-card>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <app-card>
+
+                <h6 card-title>Total Revenue</h6>
+
+                <div class="text-center">
+                    <h2>{{ dashboard.totalRevenue | currency:'INR' }}</h2>
+                </div>
+
+            </app-card>
         </div>
 
     </div>
@@ -64,9 +75,7 @@
 
             <ul class="list-group list-group-flush">
 
-                <li
-                    class="list-group-item d-flex justify-content-between"
-                    *ngFor="let order of dashboard.recentOrders">
+                <li class="list-group-item d-flex justify-content-between" *ngFor="let order of dashboard.recentOrders">
 
                     <span>{{ order.customer }}</span>
 

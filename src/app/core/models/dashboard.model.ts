@@ -10,4 +10,6 @@ export interface DashboardResponse {
   totalOrders: number;
   totalCustomers: number;
   recentOrders: RecentOrder[];
+  totalRevenue: number;
+  
 }
