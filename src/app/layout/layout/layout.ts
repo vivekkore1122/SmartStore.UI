@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BreakpointObserver } from '@angular/cdk/layout';
+import { BreakpointObserver,Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-layout',
@@ -14,7 +14,7 @@ export class Layout {
 
   constructor(private breakpointObserver: BreakpointObserver) {
 
-    this.breakpointObserver.observe('(max-width: 768px)')
+    this.breakpointObserver.observe([Breakpoints.Handset])
       .subscribe(result => {
 
         this.isMobile = result.matches;

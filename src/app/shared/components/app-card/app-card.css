@@ -1,0 +1,38 @@
+.app-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.app-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    background: #f8f9fa;
+    padding: 14px 18px;
+    border-bottom: 1px solid #e9ecef;
+    font-weight: 600;
+    color: #495057;
+}
+
+.card-header h6 {
+    margin: 0;
+    font-size: 15px;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content h2 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #0d6efd;
+}

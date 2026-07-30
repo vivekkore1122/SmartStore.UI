@@ -20,11 +20,12 @@ export class Dashboard implements OnInit {
   isLoggedIn = true;
 
   dashboard: DashboardResponse = {
-    totalProducts: 0,
-    totalCustomers: 0,
-    totalCategories: 0,
-    totalOrders: 0,
-    recentOrders: []
+      totalProducts: 0,
+      totalCategories: 0,
+      totalOrders: 0,
+      totalCustomers: 0,
+      totalRevenue: 0,
+      recentOrders: []
   };
 
   ngOnInit(): void {

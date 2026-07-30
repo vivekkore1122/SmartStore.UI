@@ -1,0 +1,86 @@
+<mat-card class="product-card">
+
+    <mat-card-content>
+
+        <div class="product-info">
+
+            <div class="product-details">
+
+                <h3>
+
+                    <mat-icon class="product-icon">
+                        inventory_2
+                    </mat-icon>
+
+                    {{ product.name }}
+
+                </h3>
+
+                <p>
+                    <strong>Product Code:</strong>
+                    {{ product.productCode }}
+                </p>
+
+                <p>
+                    <strong>Category:</strong>
+                    {{ product.category }}
+                </p>
+
+                <p>
+                    <strong>Supplier:</strong>
+                    {{ product.supplier }}
+                </p>
+
+                <p class="price">
+
+                    ₹ {{ product.price }}
+
+                </p>
+
+                <p>
+                    <strong>Stock:</strong>
+                    {{ product.quantity }}
+                </p>
+
+            </div>
+
+            <div class="actions">
+
+                <button
+                    mat-stroked-button
+                    color="primary">
+
+                    <mat-icon>visibility</mat-icon>
+
+                    View
+
+                </button>
+
+                <button
+                    mat-stroked-button
+                    color="accent">
+
+                    <mat-icon>edit</mat-icon>
+
+                    Edit
+
+                </button>
+
+                <button
+                    mat-raised-button
+                    color="warn"
+                    (click)="onDelete()">
+
+                    <mat-icon>delete</mat-icon>
+
+                    Delete
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </mat-card-content>
+
+</mat-card>

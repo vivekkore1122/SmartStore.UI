@@ -1,45 +1,133 @@
+/* ==========================================
+   Sidebar
+========================================== */
+
 .sidebar-menu {
+
+    width: 250px;
     height: 100%;
-    background: #263238;
-    color: white;
+
     display: flex;
     flex-direction: column;
+
+    background: var(--surface-color);
+
+    border-right: 1px solid var(--border-color);
+
 }
+
+/* ==========================================
+   Logo
+========================================== */
 
 .logo {
+
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 24px 16px;
-    font-size: 22px;
-    font-weight: 600;
-    color: white;
+
+    gap: 12px;
+
+    padding: 22px 20px;
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    color: var(--primary-color);
+
+    border-bottom: 1px solid var(--border-color);
+
 }
+
+.logo mat-icon {
+
+    color: var(--primary-color);
+
+    font-size: 30px;
+
+    width: 30px;
+
+    height: 30px;
+
+}
+
+/* ==========================================
+   Navigation
+========================================== */
 
 mat-nav-list {
-    padding-top: 10px;
+
+    padding: 18px 12px;
+
 }
+
+/* ==========================================
+   Menu Item
+========================================== */
 
 a[mat-list-item] {
-    color: white;
-    border-radius: 8px;
-    margin: 6px 12px;
-    transition: background-color 0.3s ease;
+
+    margin-bottom: 8px;
+
+    border-radius: 10px;
+
+    color: var(--text-color);
+
+    transition: all .25s ease;
+
 }
+
+/* Text */
+
+a[mat-list-item] span {
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+}
+
+/* Icons */
+
+a[mat-list-item] mat-icon {
+
+    color: #64748b;
+
+}
+
+/* Hover */
 
 a[mat-list-item]:hover {
-    background: rgba(255, 255, 255, 0.12);
+
+    background: #eff6ff;
+
 }
 
-.active {
-    background: #1976d2 !important;
+a[mat-list-item]:hover mat-icon {
+
+    color: var(--primary-color);
+
 }
 
-.active * {
+/* Active */
+
+a.active {
+
+    background: var(--primary-color) !important;
+
+}
+
+a.active span,
+a.active mat-icon {
+
     color: white !important;
+
 }
 
-mat-icon {
-    color: inherit;
+/* Divider */
+
+mat-divider {
+
+    border-top-color: var(--border-color);
+
 }

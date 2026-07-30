@@ -12,7 +12,11 @@
 
     <mat-sidenav-content>
 
-        <app-navbar></app-navbar>
+        <app-navbar
+            (toggleSidebar)="drawer.toggle()">
+        </app-navbar>
+
+        
 
         <main class="content">
 

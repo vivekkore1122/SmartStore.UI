@@ -1,65 +1,50 @@
-<mat-toolbar color="primary" class="navbar">
+<mat-toolbar class="navbar">
 
-    <div class="logo">
+    <div class="navbar-left">
 
-        <mat-icon>store</mat-icon>
+        <button
+            mat-icon-button
+            class="menu-btn"
+            (click)="toggleSidebar.emit()">
 
-        <span>SmartStore</span>
+            <mat-icon>menu</mat-icon>
+
+        </button>
+
+        <span class="page-name">
+            SmartStore
+        </span>
 
     </div>
 
-    <span class="spacer"></span>
+    <div class="search-box">
 
-    <mat-form-field
-        appearance="outline"
-        class="search-box">
-
-        <mat-icon matPrefix>search</mat-icon>
+        <mat-icon>search</mat-icon>
 
         <input
-            matInput
+            type="text"
             placeholder="Search products...">
 
-    </mat-form-field>
+    </div>
 
-    <button
-        mat-icon-button
-        aria-label="Notifications">
+    <div class="navbar-right">
 
-        <mat-icon>notifications</mat-icon>
+        <button mat-icon-button>
 
-    </button>
-
-    <button
-        mat-button
-        [matMenuTriggerFor]="profileMenu">
-
-        <mat-icon>account_circle</mat-icon>
-
-        Admin
-
-        <mat-icon>arrow_drop_down</mat-icon>
-
-    </button>
-
-    <mat-menu #profileMenu="matMenu">
-
-        <button mat-menu-item>
-
-            <mat-icon>person</mat-icon>
-
-            Profile
+            <mat-icon>notifications</mat-icon>
 
         </button>
 
-        <button mat-menu-item>
+        <div class="profile">
 
-            <mat-icon>logout</mat-icon>
+            <div class="avatar">
+                V
+            </div>
 
-            Logout
+            <span>Admin</span>
 
-        </button>
+        </div>
 
-    </mat-menu>
+    </div>
 
 </mat-toolbar>
