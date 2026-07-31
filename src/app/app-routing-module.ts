@@ -10,6 +10,7 @@ import { Categories } from './features/categories/categories/categories';
 import { ProductDetails } from './features/products/product-details/product-details';
 import { AddProduct } from './features/products/add-product/add-product';
 import {AddCategory} from './features/categories/add-category/add-category';
+import { Login } from './features/auth/login/login';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
       {
         path: 'categories/add',
         component:AddCategory
+      },
+      {
+        path: 'login',
+        component: Login
       }
     ]
   },
