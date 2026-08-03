@@ -32,7 +32,8 @@ const routes: Routes = [
       },
       {
         path: 'products/add',
-        component: AddProduct
+        component: AddProduct,
+        canActivate: [authGuard]
       },
       {
         path: 'products/:id',

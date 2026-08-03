@@ -1,6 +1,5 @@
 import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Navbar } from './layout/navbar/navbar';
@@ -25,7 +24,12 @@ import { MaterialModule } from './shared/material/material.module';
 import { AppCardComponent  } from './shared/components/app-card/app-card';
 import { ProductCardComponent } from './shared/components/product-card/product-card';
 import { Login } from './features/auth/login/login';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  provideHttpClient,
+  withInterceptors
+} from '@angular/common/http';
+
+import { authInterceptor } from './core/interceptors/auth-interceptor';
 
 
 
@@ -51,22 +55,33 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     
   ],
 
- imports: [
-  BrowserModule,
-  BrowserAnimationsModule,
-  AppRoutingModule,
-  ReactiveFormsModule,
-  HttpClientModule,
-  MaterialModule,
-  StoreModule.forRoot(reducers),
-  EffectsModule.forRoot([ProductEffects]),
-  StoreDevtoolsModule.instrument({
-    maxAge: 25
-  })
-],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    MaterialModule,
+
+    StoreModule.forRoot(reducers),
+
+    EffectsModule.forRoot([
+      ProductEffects
+    ]),
+
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+    })
+  ],
 
   providers: [
+
     provideBrowserGlobalErrorListeners(),
+
+    provideHttpClient(
+      withInterceptors([
+        authInterceptor
+      ])
+    )
+
   ],
   bootstrap: [App]
 })

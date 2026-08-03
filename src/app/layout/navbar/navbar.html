@@ -2,10 +2,7 @@
 
     <div class="navbar-left">
 
-        <button
-            mat-icon-button
-            class="menu-btn"
-            (click)="toggleSidebar.emit()">
+        <button mat-icon-button class="menu-btn" (click)="toggleSidebar.emit()">
 
             <mat-icon>menu</mat-icon>
 
@@ -21,9 +18,7 @@
 
         <mat-icon>search</mat-icon>
 
-        <input
-            type="text"
-            placeholder="Search products...">
+        <input type="text" placeholder="Search products...">
 
     </div>
 
@@ -35,15 +30,33 @@
 
         </button>
 
-        <div class="profile">
+        <div class="profile" *ngIf="isLoggedIn">
 
             <div class="avatar">
-                V
+
+                {{ userName.charAt(0) }}
+
             </div>
 
-            <span>Admin</span>
+            <span>
+
+                {{ userName }}
+
+            </span>
 
         </div>
+
+        <button *ngIf="!isLoggedIn" mat-raised-button color="primary" routerLink="/login">
+
+            Login
+
+        </button>
+
+        <button *ngIf="isLoggedIn" mat-stroked-button color="warn" (click)="logout()">
+
+            Logout
+
+        </button>
 
     </div>
 
