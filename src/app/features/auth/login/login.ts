@@ -32,7 +32,13 @@ export class Login {
 
         this.authService.setUser(response.user);
 
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard']).then(() => {
+
+          if (!(window as any).__karma__) {
+            window.location.reload();
+          }
+
+        });
 
       },
 
