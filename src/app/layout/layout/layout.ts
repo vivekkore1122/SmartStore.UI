@@ -6,7 +6,7 @@ import { BreakpointObserver,Breakpoints } from '@angular/cdk/layout';
   standalone: false,
   templateUrl: './layout.html',
   styleUrl: './layout.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Layout {
 

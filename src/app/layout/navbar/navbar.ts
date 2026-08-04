@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import {AuthService} from '../../core/services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-navbar',
@@ -9,8 +11,20 @@ import {AuthService} from '../../core/services/auth.service';
 })
 
 export class Navbar {
-  constructor(private authService: AuthService) {}
-    @Output()
+  constructor(private authService: AuthService,private translate: TranslateService) {
+  this.translate.setDefaultLang('en');
+  this.translate.use(this.currentLanguage);
+  }
+  
+  currentLanguage = 'en';
+
+  changeLanguage(language: string): void {
+  this.currentLanguage = language;  
+  this.translate.use(language);
+  
+  }
+
+  @Output()
   toggleSidebar = new EventEmitter<void>();
 
   userName: string = '';

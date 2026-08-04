@@ -15,7 +15,14 @@ export class ProductCardComponent {
   @Output()
   delete = new EventEmitter<number>();
 
+  @Output()
+  view = new EventEmitter<number>();
+
   onDelete(): void {
     this.delete.emit(this.product.id);
+  }
+
+  onView(): void {
+    this.view.emit(this.product.id);
   }
 }

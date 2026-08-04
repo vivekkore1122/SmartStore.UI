@@ -20,7 +20,9 @@
 
             <mat-icon matListItemIcon>home</mat-icon>
 
-            <span matListItemTitle>Home</span>
+            <span matListItemTitle>
+                {{ 'NAVBAR.HOME' | translate }}
+            </span>
 
         </a>
 
@@ -31,7 +33,9 @@
 
             <mat-icon matListItemIcon>dashboard</mat-icon>
 
-            <span matListItemTitle>Dashboard</span>
+            <span matListItemTitle>
+                {{ 'NAVBAR.DASHBOARD' | translate }}
+            </span>
 
         </a>
 
@@ -42,7 +46,9 @@
 
             <mat-icon matListItemIcon>inventory_2</mat-icon>
 
-            <span matListItemTitle>Products</span>
+            <span matListItemTitle>
+                {{ 'NAVBAR.PRODUCTS' | translate }}
+            </span>
 
         </a>
 
@@ -53,28 +59,24 @@
 
             <mat-icon matListItemIcon>category</mat-icon>
 
-            <span matListItemTitle>Categories</span>
+            <span matListItemTitle>
+                {{ 'NAVBAR.CATEGORIES' | translate }}
+            </span>
 
         </a>
 
-        <!-- Future Modules -->
+        <a
+            mat-list-item
+            routerLink="/qr-code"
+            routerLinkActive="active">
 
-        <!--
-        <a mat-list-item routerLink="/suppliers">
-            <mat-icon matListItemIcon>local_shipping</mat-icon>
-            <span matListItemTitle>Suppliers</span>
-        </a>
+            <mat-icon matListItemIcon>qr_code</mat-icon>
 
-        <a mat-list-item routerLink="/sales">
-            <mat-icon matListItemIcon>payments</mat-icon>
-            <span matListItemTitle>Sales</span>
-        </a>
+            <span matListItemTitle>
+                {{ 'NAVBAR.QRCODE' | translate }}
+            </span>
 
-        <a mat-list-item routerLink="/reports">
-            <mat-icon matListItemIcon>bar_chart</mat-icon>
-            <span matListItemTitle>Reports</span>
         </a>
-        -->
 
     </mat-nav-list>
 

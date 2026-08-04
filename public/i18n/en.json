@@ -1,0 +1,24 @@
+{
+  "NAVBAR": {
+    "HOME": "Home",
+    "DASHBOARD": "Dashboard",
+    "PRODUCTS": "Products",
+    "CATEGORIES": "Categories",
+    "QRCODE": "QR Code",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout"
+  },
+
+  "PRODUCT": {
+    "TITLE": "Product Details",
+    "NAME": "Product Name",
+    "CODE": "Product Code",
+    "CATEGORY": "Category",
+    "SUPPLIER": "Supplier",
+    "PRICE": "Price",
+    "QUANTITY": "Quantity",
+    "DOWNLOAD": "Download PNG",
+    "BACK": "Back",
+    "EDIT": "Edit"
+  }
+}
