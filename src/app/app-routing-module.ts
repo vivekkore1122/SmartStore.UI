@@ -9,8 +9,9 @@ import { Products } from './features/products/products/products';
 import { Categories } from './features/categories/categories/categories';
 import { ProductDetails } from './features/products/product-details/product-details';
 import { AddProduct } from './features/products/add-product/add-product';
-import {AddCategory} from './features/categories/add-category/add-category';
+import { AddCategory } from './features/categories/add-category/add-category';
 import { Login } from './features/auth/login/login';
+import { QrCode } from './features/qr-code/qr-code/qr-code';
 
 const routes: Routes = [
   {
@@ -38,7 +39,7 @@ const routes: Routes = [
       {
         path: 'products/:id',
         component: ProductDetails,
-        canActivate: [authGuard]
+        //canActivate: [authGuard]
       },
       {
         path: 'categories',
@@ -47,11 +48,15 @@ const routes: Routes = [
       },
       {
         path: 'categories/add',
-        component:AddCategory
+        component: AddCategory
       },
       {
         path: 'login',
         component: Login
+      },
+      {
+        path: 'qr-code',
+        component: QrCode
       }
     ]
   },

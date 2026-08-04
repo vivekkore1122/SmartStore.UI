@@ -24,15 +24,22 @@ import { MaterialModule } from './shared/material/material.module';
 import { AppCardComponent  } from './shared/components/app-card/app-card';
 import { ProductCardComponent } from './shared/components/product-card/product-card';
 import { Login } from './features/auth/login/login';
-import {
-  provideHttpClient,
-  withInterceptors
-} from '@angular/common/http';
-
+import {HttpClient, provideHttpClient,withInterceptors} from '@angular/common/http';
 import { authInterceptor } from './core/interceptors/auth-interceptor';
+import { QrCode } from './features/qr-code/qr-code/qr-code';
+import { QRCodeComponent } from 'angularx-qrcode';
+import {
+  TranslateLoader,
+  TranslateModule
+} from '@ngx-translate/core';
+
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
-
+  
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -51,7 +58,8 @@ import { authInterceptor } from './core/interceptors/auth-interceptor';
     AddCategory,
     AppCardComponent,
     ProductCardComponent,
-    Login
+    Login,
+    QrCode
     
   ],
 
@@ -61,6 +69,25 @@ import { authInterceptor } from './core/interceptors/auth-interceptor';
     ReactiveFormsModule,
     MaterialModule,
 
+    TranslateModule.forRoot({
+
+    defaultLanguage: 'en',
+
+    loader: {
+
+      provide: TranslateLoader,
+
+      useFactory: HttpLoaderFactory,
+
+      deps: [HttpClient]
+
+    }
+
+    }),
+
+
+    QRCodeComponent,
+
     StoreModule.forRoot(reducers),
 
     EffectsModule.forRoot([
@@ -69,8 +96,12 @@ import { authInterceptor } from './core/interceptors/auth-interceptor';
 
     StoreDevtoolsModule.instrument({
       maxAge: 25
-    })
+    }),
+
+    
   ],
+
+  
 
   providers: [
 

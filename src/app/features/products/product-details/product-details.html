@@ -1,6 +1,6 @@
-<div class="details-container">
+<div class="details-container" *ngIf="product">
 
-    <mat-card class="details-card"*ngIf="product">
+    <mat-card class="details-card">
 
         <mat-card-header>
 
@@ -19,63 +19,68 @@
         <mat-card-content>
 
             <div class="detail-row">
-
                 <span class="label">Product Name</span>
-
                 <span class="value">{{ product.name }}</span>
-
             </div>
 
             <div class="detail-row">
-
                 <span class="label">Product Code</span>
-
                 <span class="value">{{ product.productCode }}</span>
-
             </div>
 
             <div class="detail-row">
-
                 <span class="label">Category</span>
-
                 <span class="value">{{ product.category }}</span>
-
             </div>
 
             <div class="detail-row">
-
                 <span class="label">Supplier</span>
-
                 <span class="value">{{ product.supplier }}</span>
-
             </div>
 
             <div class="detail-row">
-
                 <span class="label">Price</span>
-
                 <span class="value">₹ {{ product.price }}</span>
-
             </div>
 
             <div class="detail-row">
-
                 <span class="label">Quantity</span>
-
                 <span class="value">{{ product.quantity }}</span>
-
             </div>
 
         </mat-card-content>
 
         <mat-divider></mat-divider>
 
+        <!-- QR Code Section -->
+        <div class="qr-section">
+
+            <div #qrContainer>
+
+                <qrcode [qrdata]="qrData" [width]="220" [errorCorrectionLevel]="'M'">
+                </qrcode>
+
+            </div>
+
+            <p class="qr-text">
+                Scan to view product details
+            </p>
+
+            <button mat-raised-button color="primary" (click)="downloadPNG()">
+
+                <mat-icon>download</mat-icon>
+
+                Download PNG
+
+            </button>
+
+        </div>
+
+        <mat-divider></mat-divider>
+
         <mat-card-actions align="end">
 
-            <button
-                mat-stroked-button
-                color="primary"
-                routerLink="/products">
+            <button mat-stroked-button color="primary" routerLink="/products">
 
                 <mat-icon>arrow_back</mat-icon>
 
@@ -83,9 +88,7 @@
 
             </button>
 
-            <button
-                mat-raised-button
-                color="accent">
+            <button mat-raised-button color="accent">
 
                 <mat-icon>edit</mat-icon>
 
@@ -96,5 +99,11 @@
         </mat-card-actions>
 
     </mat-card>
+
+</div>
+
+<div class="loading" *ngIf="!product">
+
+    <h3>Loading Product...</h3>
 
 </div>

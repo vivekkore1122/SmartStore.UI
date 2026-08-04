@@ -11,6 +11,7 @@ import {
   selectProducts,
   selectLoading
 } from '../../../store/selectors/product.selectors';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -23,9 +24,13 @@ export class Products implements OnInit {
   products$: Observable<Product[]>;
   loading$: Observable<boolean>;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>,private router: Router) {
     this.products$ = this.store.select(selectProducts);
     this.loading$ = this.store.select(selectLoading);
+  }
+
+  viewProduct(id: number): void {
+    this.router.navigate([`/products/${id}`]);
   }
 
   deleteProduct(id: number): void {

@@ -15,7 +15,10 @@
     <app-product-card
         *ngFor="let product of (products$ | async)"
         [product]="product"
-        (delete)="deleteProduct($event)">
+        (view)="viewProduct($event)"
+        (delete)="deleteProduct($event)"
+        >
+        
 
     </app-product-card>
 

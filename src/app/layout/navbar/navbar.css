@@ -151,3 +151,57 @@
     font-weight: bold;
 
 }
+
+/* Language Selector */
+
+.language-select {
+
+    width: 120px;
+
+    margin: 0;
+
+}
+
+.language-select .mat-mdc-form-field-subscript-wrapper {
+
+    display: none;
+
+}
+
+.language-select .mat-mdc-text-field-wrapper {
+
+    height: 40px !important;
+
+}
+
+.language-select .mat-mdc-form-field-infix {
+
+    min-height: 40px !important;
+
+    padding-top: 8px !important;
+
+    padding-bottom: 8px !important;
+
+}
+
+/* Notification Icon */
+.navbar-right button mat-icon {
+    color: white !important;
+}
+
+/* Language Text */
+:host ::ng-deep .language-select .mat-mdc-select-value-text {
+    color: white !important;
+}
+
+/* Dropdown Arrow */
+:host ::ng-deep .language-select .mat-mdc-select-arrow svg {
+    fill: white !important;
+}
+
+/* Outline Border */
+:host ::ng-deep .language-select .mdc-notched-outline__leading,
+:host ::ng-deep .language-select .mdc-notched-outline__notch,
+:host ::ng-deep .language-select .mdc-notched-outline__trailing {
+    border-color: white !important;
+}

@@ -1,0 +1,24 @@
+{
+  "NAVBAR": {
+    "HOME": "Inicio",
+    "DASHBOARD": "Panel",
+    "PRODUCTS": "Productos",
+    "CATEGORIES": "Categorías",
+    "QRCODE": "Código QR",
+    "LOGIN": "Iniciar sesión",
+    "LOGOUT": "Cerrar sesión"
+  },
+
+  "PRODUCT": {
+    "TITLE": "Detalles del Producto",
+    "NAME": "Nombre del Producto",
+    "CODE": "Código",
+    "CATEGORY": "Categoría",
+    "SUPPLIER": "Proveedor",
+    "PRICE": "Precio",
+    "QUANTITY": "Cantidad",
+    "DOWNLOAD": "Descargar PNG",
+    "BACK": "Atrás",
+    "EDIT": "Editar"
+  }
+}
