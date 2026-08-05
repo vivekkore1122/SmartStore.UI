@@ -1,91 +1,206 @@
-<div class="container-fluid py-4">
+<!-- ==========================================
+     Welcome Banner
+========================================== -->
 
-    <h2 class="fw-bold">Dashboard</h2>
+<div class="welcome-banner">
 
-    <h5 *ngIf="isLoggedIn">
-        Welcome {{ userName }} 👋
-    </h5>
+    <div>
 
-    <h5 *ngIf="!isLoggedIn" class="text-danger">
-        Please Login
-    </h5>
+        <h2>
 
-    <p>
-        Good Morning, Welcome to {{ applicationName }}
-    </p>
+            👋 Welcome back, {{ userName }}
 
-    <div class="row mt-4">
+        </h2>
 
-        <div class="col-md-3 mb-3">
+        <p>
 
-            <app-card>
+            {{ greeting }}! Here's your inventory summary today.
 
-                <h6 card-title>Total Products</h6>
-
-                <div class="text-center">
-                    <h2>{{ dashboard.totalProducts }}</h2>
-                </div>
-
-            </app-card>
-
-        </div>
-
-        <div class="col-md-3 mb-3">
-            <app-card>
-
-                <h6 card-title>Total Customers</h6>
-                <div class="text-center">
-                    <h2>{{ dashboard.totalCustomers }}</h2>
-                </div>
-
-            </app-card>
-        </div>
-
-        <div class="col-md-3 mb-3">
-            <app-card>
-                <h6 card-title>Total Orders</h6>
-                <div class="text-center">
-                    <h2>{{ dashboard.totalOrders }}</h2>
-                </div>
-
-            </app-card>
-        </div>
-
-        <div class="col-md-3 mb-3">
-            <app-card>
-
-                <h6 card-title>Total Revenue</h6>
-
-                <div class="text-center">
-                    <h2>{{ dashboard.totalRevenue | currency:'INR' }}</h2>
-                </div>
-
-            </app-card>
-        </div>
+        </p>
 
     </div>
 
-    <div class="card shadow-sm mt-4">
+    <div class="welcome-date">
 
-        <div class="card-header">
-            Recent Orders
-        </div>
+        <mat-icon>calendar_today</mat-icon>
 
-        <div class="card-body">
+        {{ today | date:'dd MMM yyyy' }}
 
-            <ul class="list-group list-group-flush">
+    </div>
 
-                <li class="list-group-item d-flex justify-content-between" *ngFor="let order of dashboard.recentOrders">
+</div>
 
-                    <span>{{ order.customer }}</span>
 
-                    <strong>₹{{ order.amount }}</strong>
+<!-- ==========================================
+     Dashboard Statistics
+========================================== -->
 
-                </li>
+<div class="stats-grid">
 
-            </ul>
+    <mat-card class="stat-card products">
 
-        </div>
+        <mat-card-content>
+
+            <div class="card-icon">
+
+                📦
+
+            </div>
+
+            <div class="card-title">
+
+                Products
+
+            </div>
+
+            <div class="card-value">
+
+                {{ totalProducts }}
+
+            </div>
+
+        </mat-card-content>
+
+    </mat-card>
+
+    <mat-card class="stat-card categories">
+
+        <mat-card-content>
+
+            <div class="card-icon">
+
+                📂
+
+            </div>
+
+            <div class="card-title">
+
+                Categories
+
+            </div>
+
+            <div class="card-value">
+
+                {{ totalCategories }}
+
+            </div>
+
+        </mat-card-content>
+
+    </mat-card>
+
+    <mat-card class="stat-card stock">
+
+        <mat-card-content>
+
+            <div class="card-icon">
+
+                ⚠️
+
+            </div>
+
+            <div class="card-title">
+
+                Low Stock
+
+            </div>
+
+            <div class="card-value">
+
+                {{ lowStockProducts }}
+
+            </div>
+
+        </mat-card-content>
+
+    </mat-card>
+
+    <mat-card class="stat-card revenue">
+
+        <mat-card-content>
+
+            <div class="card-icon">
+
+                💰
+
+            </div>
+
+            <div class="card-title">
+
+                Inventory Value
+
+            </div>
+
+            <div class="card-value">
+
+                ₹{{ inventoryValue | number }}
+
+            </div>
+
+        </mat-card-content>
+
+    </mat-card>
+
+</div>
+
+
+<!-- ==========================================
+     Quick Actions
+========================================== -->
+
+<div class="quick-section">
+
+    <h3>
+
+        ⚡ Quick Actions
+
+    </h3>
+
+    <div class="quick-grid">
+
+        <button
+            mat-flat-button
+            color="primary"
+            routerLink="/products/add">
+
+            ➕
+
+            Add Product
+
+        </button>
+
+        <button
+            mat-flat-button
+            color="primary"
+            routerLink="/categories/add">
+
+            📂
+
+            Add Category
+
+        </button>
+
+        <button
+            mat-flat-button
+            color="primary"
+            routerLink="/products">
+
+            📦
+
+            Products
+
+        </button>
+
+        <button
+            mat-flat-button
+            color="primary"
+            routerLink="/qr-code">
+
+            ◼
+
+            QR Code
+
+        </button>
 
     </div>
 

@@ -34,6 +34,7 @@ import {
 } from '@ngx-translate/core';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CategoryEffects } from './store/effects/category.effects';
 
 
   
@@ -91,7 +92,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     StoreModule.forRoot(reducers),
 
     EffectsModule.forRoot([
-      ProductEffects
+      ProductEffects,
+      CategoryEffects
     ]),
 
     StoreDevtoolsModule.instrument({
