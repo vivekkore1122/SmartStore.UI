@@ -1,6 +1,15 @@
-import { Component, OnInit,DoCheck,ChangeDetectionStrategy} from '@angular/core';
-import { DashboardService } from '../../../core/services/dashboard.service';
+import { Component, OnInit, DoCheck, ChangeDetectionStrategy } from '@angular/core';
+//import { DashboardService } from '../../../core/services/dashboard.service';
 import { DashboardResponse } from '../../../core/models/dashboard.model';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+import { Product } from '../../../core/models/product.model';
+import { AppState } from '../../../store/state/app.state';
+
+import * as ProductActions from '../../../store/actions/product.actions';
+
+import { selectProducts } from '../../../store/selectors/product.selectors';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,51 +20,100 @@ import { DashboardResponse } from '../../../core/models/dashboard.model';
 })
 export class Dashboard implements OnInit {
 
+  today = new Date();
+
+  greeting = '';
+
+  quote = 'Have a productive day managing your inventory!';
+
   constructor(
-    private dashboardService: DashboardService
-  ) { }
+    private store: Store<AppState>
+  ) {
+    this.products$ = this.store.select(selectProducts);
+  }
 
   applicationName = 'InventoryPro';
   userName = 'Admin';
   isLoggedIn = true;
+  products$: Observable<Product[]>;
 
-  dashboard: DashboardResponse = {
-      totalProducts: 0,
-      totalCategories: 0,
-      totalOrders: 0,
-      totalCustomers: 0,
-      totalRevenue: 0,
-      recentOrders: []
-  };
+  totalProducts = 0;
+
+  totalCategories = 0;
+
+  inventoryValue = 0;
+
+  lowStockProducts = 0;
 
   ngOnInit(): void {
-    this.loadDashboard();
-  }
 
-//   ngDoCheck(): void {
-//   console.log('Dashboard Change Detection');
-//  }
+    this.store.dispatch(ProductActions.loadProducts());
 
-  private loadDashboard(): void {
+    this.products$.subscribe(products => {
 
-    this.dashboardService.getDashboard().subscribe({
+      console.log('Products From Store:', products);
 
-      next: (response) => {
+      this.totalProducts = products.length;
 
-        console.log('Dashboard Response:', response);
+      this.totalCategories = new Set(
+        products.map(product => product.category)
+      ).size;
 
-        this.dashboard = response;
+      this.inventoryValue = products.reduce((total, product) => { return total + (product.price * product.quantity); }, 0);
 
-      },
-
-      error: (error) => {
-
-        console.error('Error loading dashboard:', error);
-
-      }
+      this.lowStockProducts = products.filter(product => product.quantity < 10).length;
 
     });
 
+    this.setGreeting();
+
   }
+
+  private setGreeting(): void {
+
+    const hour = new Date().getHours();
+
+    if (hour < 12) {
+
+      this.greeting = 'Good Morning';
+
+    }
+
+    else if (hour < 17) {
+
+      this.greeting = 'Good Afternoon';
+
+    }
+
+    else {
+
+      this.greeting = 'Good Evening';
+
+    }
+
+  }
+
+  // private loadDashboard(): void {
+
+  //   this.store.select(selectDashboard).subscribe({
+
+  //     next: (response) => {
+
+  //       console.log('Dashboard Response:', response);
+
+  //       this.dashboard = response;
+
+  //     },
+
+  //     error: (error) => {
+
+  //       console.error('Error loading dashboard:', error);
+
+  //     }
+
+  //   });
+
+  // }
+
 
 }

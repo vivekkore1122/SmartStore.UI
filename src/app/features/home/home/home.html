@@ -1,1 +1,115 @@
-<p>home works!</p>
+<div class="home-container">
+
+    <!-- Welcome Banner -->
+
+    <mat-card class="welcome-card">
+
+        <h1>👋 Welcome to SmartStore</h1>
+
+        <p>
+            Manage your inventory with a modern Angular application.
+        </p>
+
+        <div class="banner-buttons">
+
+            <button
+                mat-raised-button
+                color="primary"
+                routerLink="/dashboard">
+
+                Dashboard
+
+            </button>
+
+            <button
+                mat-stroked-button
+                color="primary"
+                routerLink="/products/add">
+
+                Add Product
+
+            </button>
+
+        </div>
+
+    </mat-card>
+
+    <!-- Quick Access -->
+
+    <div class="feature-grid">
+
+        <mat-card
+            class="feature-card"
+            routerLink="/products">
+
+            <mat-icon>inventory_2</mat-icon>
+
+            <h3>Products</h3>
+
+            <p>Manage all products.</p>
+
+        </mat-card>
+
+        <mat-card
+            class="feature-card"
+            routerLink="/categories">
+
+            <mat-icon>category</mat-icon>
+
+            <h3>Categories</h3>
+
+            <p>Manage product categories.</p>
+
+        </mat-card>
+
+        <mat-card
+            class="feature-card"
+            routerLink="/dashboard">
+
+            <mat-icon>dashboard</mat-icon>
+
+            <h3>Dashboard</h3>
+
+            <p>View statistics.</p>
+
+        </mat-card>
+
+        <mat-card
+            class="feature-card"
+            routerLink="/qr-code">
+
+            <mat-icon>qr_code_2</mat-icon>
+
+            <h3>QR Generator</h3>
+
+            <p>Create product QR codes.</p>
+
+        </mat-card>
+
+    </div>
+
+    <!-- Project Features -->
+
+    <mat-card class="info-card">
+
+        <h2>Project Features</h2>
+
+        <mat-list>
+
+            <mat-list-item>✔ Authentication & Route Guards</mat-list-item>
+
+            <mat-list-item>✔ NgRx State Management</mat-list-item>
+
+            <mat-list-item>✔ QR Code Generation</mat-list-item>
+
+            <mat-list-item>✔ Angular Material UI</mat-list-item>
+
+            <mat-list-item>✔ Responsive Layout</mat-list-item>
+
+            <mat-list-item>✔ Multi-language Support</mat-list-item>
+
+        </mat-list>
+
+    </mat-card>
+
+</div>
