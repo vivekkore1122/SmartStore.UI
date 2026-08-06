@@ -1,24 +1,27 @@
 <div class="product-list">
 
     <div class="d-flex justify-content-between align-items-center mb-4">
-    <h1 class="mb-0">Products</h1>
+        <h1 class="mb-0">Products</h1>
 
-    <button
-        class="btn btn-primary"
-        routerLink="/products/add">
+        <button mat-raised-button color="primary" routerLink="/products/add">
+            <mat-icon class="header-icon">
+                add</mat-icon>
 
-        + Add Product
+            
 
-    </button>
-</div>
 
-    <app-product-card
-        *ngFor="let product of (products$ | async)"
-        [product]="product"
-        (view)="viewProduct($event)"
-        (delete)="deleteProduct($event)"
-        >
-        
+            Add Product
+
+        </button>
+    </div>
+
+
+
+
+
+    <app-product-card *ngFor="let product of (products$ | async)" [product]="product" (view)="viewProduct($event)"
+        (delete)="deleteProduct($event)">
+
 
     </app-product-card>
 

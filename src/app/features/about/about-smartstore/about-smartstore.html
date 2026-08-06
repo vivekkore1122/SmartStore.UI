@@ -1,0 +1,269 @@
+<div class="about-container">
+
+    <!-- Hero Section -->
+
+    <mat-card class="hero-card">
+
+        <div class="hero-content">
+
+            <mat-icon class="hero-icon">
+
+                store
+
+            </mat-icon>
+
+            <h1>
+
+                {{ company.product }}
+
+            </h1>
+
+            <h3>
+
+                Inventory Management System
+
+            </h3>
+
+            <p>
+
+                Enterprise Inventory Solution by
+
+                <strong>{{ company.name }}</strong>
+
+            </p>
+
+        </div>
+
+    </mat-card>
+
+    <!-- About -->
+
+    <mat-card class="section-card">
+
+        <mat-card-header>
+
+            <mat-icon class="section-icon">
+
+                info
+
+            </mat-icon>
+
+            <mat-card-title>
+
+                About SmartStore
+
+            </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
+
+            <p>
+
+                {{ company.description }}
+
+            </p>
+
+        </mat-card-content>
+
+    </mat-card>
+
+    <!-- Organization -->
+
+    <mat-card class="section-card">
+
+        <mat-card-header>
+
+            <mat-icon class="section-icon">
+
+                business
+
+            </mat-icon>
+
+            <mat-card-title>
+
+                About Organization
+
+            </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
+
+            <h3>
+
+                {{ company.name }}
+
+            </h3>
+
+            <p>
+
+                {{ company.mission }}
+
+            </p>
+
+        </mat-card-content>
+
+    </mat-card>
+
+    <!-- Technology Stack -->
+
+    <mat-card class="section-card">
+
+        <mat-card-header>
+
+            <mat-icon class="section-icon">
+
+                memory
+
+            </mat-icon>
+
+            <mat-card-title>
+
+                Technology Stack
+
+            </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
+
+            <div class="chip-container">
+
+                <mat-chip-set>
+
+                    <mat-chip *ngFor="let tech of technologies">
+
+                        {{ tech }}
+
+                    </mat-chip>
+
+                </mat-chip-set>
+
+            </div>
+
+        </mat-card-content>
+
+    </mat-card>
+
+    <!-- Features -->
+
+    <mat-card class="section-card">
+
+        <mat-card-header>
+
+            <mat-icon class="section-icon">
+
+                dashboard
+
+            </mat-icon>
+
+            <mat-card-title>
+
+                Core Features
+
+            </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
+
+            <div class="feature-grid">
+
+                <div
+                    class="feature-card"
+                    *ngFor="let feature of features">
+
+                    <mat-icon>
+
+                        check_circle
+
+                    </mat-icon>
+
+                    <span>
+
+                        {{ feature }}
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </mat-card-content>
+
+    </mat-card>
+
+    <!-- Company + QR -->
+
+    <mat-card class="section-card">
+
+        <mat-card-header>
+
+            <mat-icon class="section-icon">
+
+                qr_code
+
+            </mat-icon>
+
+            <mat-card-title>
+
+                Company Information
+
+            </mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
+
+            <div class="company-grid">
+
+                <div>
+
+                    <p><strong>Company :</strong> {{ company.name }}</p>
+
+                    <p><strong>Address :</strong> {{ company.address }}</p>
+
+                    <p><strong>Email :</strong> {{ company.email }}</p>
+
+                    <p><strong>Phone :</strong> {{ company.phone }}</p>
+
+                    <p><strong>Website :</strong> {{ company.website }}</p>
+
+                </div>
+
+                <div class="qr-box">
+
+                    <qrcode
+                        [qrdata]="qrData"
+                        [width]="180">
+
+                    </qrcode>
+
+                    <p>
+
+                        Scan to visit our website
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </mat-card-content>
+
+    </mat-card>
+
+    <!-- Footer -->
+
+    <mat-card class="footer-card">
+
+        © 2026 {{ company.name }}
+
+        <br>
+
+        {{ company.product }} Version {{ company.version }}
+
+    </mat-card>
+
+</div>

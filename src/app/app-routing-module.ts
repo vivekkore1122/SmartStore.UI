@@ -11,7 +11,7 @@ import { ProductDetails } from './features/products/product-details/product-deta
 import { AddProduct } from './features/products/add-product/add-product';
 import { AddCategory } from './features/categories/add-category/add-category';
 import { Login } from './features/auth/login/login';
-import { QrCode } from './features/qr-code/qr-code/qr-code';
+import { AboutSmartStore } from './features/about/about-smartstore/about-smartstore';
 
 const routes: Routes = [
   {
@@ -55,8 +55,8 @@ const routes: Routes = [
         component: Login
       },
       {
-        path: 'qr-code',
-        component: QrCode
+        path: 'about',
+        component: AboutSmartStore
       }
     ]
   },

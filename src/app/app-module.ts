@@ -26,15 +26,12 @@ import { ProductCardComponent } from './shared/components/product-card/product-c
 import { Login } from './features/auth/login/login';
 import {HttpClient, provideHttpClient,withInterceptors} from '@angular/common/http';
 import { authInterceptor } from './core/interceptors/auth-interceptor';
-import { QrCode } from './features/qr-code/qr-code/qr-code';
 import { QRCodeComponent } from 'angularx-qrcode';
-import {
-  TranslateLoader,
-  TranslateModule
-} from '@ngx-translate/core';
-
+import {TranslateLoader,TranslateModule} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CategoryEffects } from './store/effects/category.effects';
+//import { AboutSmartstore } from './features/about/about-smartstore/about-smartstore';
+import { AboutSmartStore } from './features/about/about-smartstore/about-smartstore';
 
 
   
@@ -60,7 +57,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppCardComponent,
     ProductCardComponent,
     Login,
-    QrCode
+    AboutSmartStore
     
   ],
 

@@ -12,11 +12,7 @@
 
     <mat-nav-list>
 
-        <a
-            mat-list-item
-            routerLink="/"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }">
+        <a mat-list-item routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
 
             <mat-icon matListItemIcon>home</mat-icon>
 
@@ -26,10 +22,7 @@
 
         </a>
 
-        <a
-            mat-list-item
-            routerLink="/dashboard"
-            routerLinkActive="active">
+        <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
 
             <mat-icon matListItemIcon>dashboard</mat-icon>
 
@@ -39,10 +32,7 @@
 
         </a>
 
-        <a
-            mat-list-item
-            routerLink="/products"
-            routerLinkActive="active">
+        <a mat-list-item routerLink="/products" routerLinkActive="active">
 
             <mat-icon matListItemIcon>inventory_2</mat-icon>
 
@@ -52,10 +42,7 @@
 
         </a>
 
-        <a
-            mat-list-item
-            routerLink="/categories"
-            routerLinkActive="active">
+        <a mat-list-item routerLink="/categories" routerLinkActive="active">
 
             <mat-icon matListItemIcon>category</mat-icon>
 
@@ -65,15 +52,18 @@
 
         </a>
 
-        <a
-            mat-list-item
-            routerLink="/qr-code"
-            routerLinkActive="active">
+        <a mat-list-item routerLink="/about" routerLinkActive="active">
 
-            <mat-icon matListItemIcon>qr_code</mat-icon>
+            <mat-icon matListItemIcon>
+
+                info
+
+            </mat-icon>
 
             <span matListItemTitle>
-                {{ 'NAVBAR.QRCODE' | translate }}
+
+                About SmartStore
+
             </span>
 
         </a>
