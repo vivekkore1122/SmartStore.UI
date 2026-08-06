@@ -56,6 +56,8 @@ export class Categories implements OnInit {
 
   ngOnInit(): void {
 
+    console.log('Dispatching Load Categories');
+
     this.store.dispatch(CategoryActions.loadCategories());
 
   }

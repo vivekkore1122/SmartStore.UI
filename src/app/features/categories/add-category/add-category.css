@@ -1,0 +1,43 @@
+.form-container {
+
+    padding: 25px;
+
+}
+
+.form-card {
+
+    max-width: 700px;
+
+    margin: auto;
+
+    border-radius: 12px;
+
+}
+
+.header-icon {
+
+    margin-right: 10px;
+
+    color: #1976d2;
+
+}
+
+.full-width {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+}
+
+.button-group {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+}

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QrCode } from './qr-code';
+import { AboutSmartstore } from './about-smartstore';
 
-describe('QrCode', () => {
-  let component: QrCode;
-  let fixture: ComponentFixture<QrCode>;
+describe('AboutSmartstore', () => {
+  let component: AboutSmartstore;
+  let fixture: ComponentFixture<AboutSmartstore>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [QrCode]
+      declarations: [AboutSmartstore]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(QrCode);
+    fixture = TestBed.createComponent(AboutSmartstore);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
